@@ -4,19 +4,35 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+    background-image: url('https://t3.ftcdn.net/jpg/01/15/87/42/360_F_115874272_twfxeooDtMHNOrNhPEcop0JaX6kDkzKU.jpg'); /* Your new image URL */
+    background-size: cover; /* Ensure the image covers the screen */
+    background-position: center center; /* Center the image */
+    background-attachment: fixed; /* Keep the image fixed when scrolling */
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
+.main-body {
+    text-align: center;
+    width: 100%; /* Make the body take up full width */
+    max-width: 900px; /* Limit the width to avoid stretching on large screens */
     padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: Add slight opacity to the background */
+    border-radius: 8px; /* Optional: Rounded corners */
+    border: 5px solid #007bff; /* Solid blue frame around the main body */
 }
 
 .header {
-    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -29,14 +45,41 @@ input, textarea {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #007bff; /* Common blue color */
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #0056b3; /* Darker blue on hover */
 }
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-bar {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 200px; /* Adjust width as needed */
+}
+
+.post-job-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.ml-3 {
+    margin-left: 10px;
+}
+

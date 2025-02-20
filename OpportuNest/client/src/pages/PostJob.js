@@ -1,37 +1,39 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function PostJob() {
+const PostJob = () => {
     const [jobTitle, setJobTitle] = useState("");
     const [jobDescription, setJobDescription] = useState("");
     const [message, setMessage] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        
         if (!jobTitle || !jobDescription) {
             setMessage("Please fill in all fields.");
             return;
         }
 
-        axios
-            .post("http://localhost:5000/api/jobs", {
+        try {
+            const response = await axios.post("https://super-duper-fiesta-r47vwrj5xwwxc5rx-5000.app.github.dev/api/jobs", {
                 title: jobTitle,
                 description: jobDescription,
-            })
-            .then((response) => {
+            });
+
+            if (response.status === 201) {
                 setMessage("Job posted successfully!");
                 setJobTitle("");
                 setJobDescription("");
-            })
-            .catch((error) => {
-                console.log(error);
-                setMessage("Error posting job.");
-            });
+            }
+        } catch (error) {
+            console.error("Error posting job:", error);
+            setMessage("Error posting job.");
+        }
     };
 
     return (
-        <div className="container">
-            <h1 className="header">Post a Job</h1>
+        <div>
+            <h2>Post a Job</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -44,13 +46,12 @@ function PostJob() {
                     value={jobDescription}
                     onChange={(e) => setJobDescription(e.target.value)}
                 />
-                <button type="submit" className="btn btn-success">
-                    Post Job
-                </button>
+                <button type="submit">Post Job</button>
             </form>
-            {message && <p className="mt-3">{message}</p>}
+            {message && <p>{message}</p>}
         </div>
     );
-}
+};
 
 export default PostJob;
+
