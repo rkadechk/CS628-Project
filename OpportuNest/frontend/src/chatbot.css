@@ -1,0 +1,16 @@
+.job-search-btn {
+    margin: 10px auto;
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    width: fit-content;
+}
+
+.job-search-btn:hover {
+    background: #218838;
+}
